@@ -2,7 +2,37 @@ import styled, { css } from 'styled-components'
 
 import { isAlphaNumeric, withUnit } from 'utils'
 
+const directions = ['Left', 'Right', 'Top', 'Bottom']
 const layerStyles = 'position: absolute; top: 0; right: 0; bottom: 0; left: 0;'
+
+const createSpaces = type => props => {
+  let result = ''
+
+  directions.forEach(direction => {
+    const property = props[`${type[0]}${direction}`]
+
+    if (property) {
+      result += `${type}-${direction.toLowerCase()}: ${withUnit(property)};`
+    }
+  })
+
+  return result
+}
+
+const createLists = props => {
+  let result = ''
+
+  directions.forEach((direction, index) => {
+    const property = props[`list${direction}`]
+
+    if (property) {
+      const value = property === true ? '8px' : withUnit(property)
+      result += `> *:not(:${index % 2 ? 'last' : 'first'}-child) { margin-${direction.toLowerCase()}: ${value}; }`
+    }
+  })
+
+  return result
+}
 
 export default styled.div`
   display: ${props => {
@@ -87,37 +117,30 @@ export default styled.div`
   ${({ maxWidth }) => maxWidth && css`max-width: ${withUnit(maxWidth)};`}
   ${({ maxHeight }) => maxHeight && css`max-height: ${withUnit(maxHeight)};`}
 
+  ${({ fullHeight }) => fullHeight && css`min-height: 100vh;` }
+
   ${({ margin, m }) => (margin || m) && css`margin: ${withUnit(margin || m)};`}
-  ${({ mTop }) => mTop && css`margin-top: ${withUnit(mTop)};`}
-  ${({ mRight }) => mRight && css`margin-right: ${withUnit(mRight)};`}
-  ${({ mBottom }) => mBottom && css`margin-bottom: ${withUnit(mBottom)};`}
-  ${({ mLeft }) => mLeft && css`margin-left: ${withUnit(mLeft)};`}
+  ${createSpaces('margin')}
 
   ${({ padding, p }) => (padding || p) && css`padding: ${withUnit(padding || p)};`}
-  ${({ pTop }) => pTop && css`padding-top: ${withUnit(pTop)};`}
-  ${({ pRight }) => pRight && css`padding-right: ${withUnit(pRight)};`}
-  ${({ pBottom }) => pBottom && css`padding-bottom: ${withUnit(pBottom)};`}
-  ${({ pLeft }) => pLeft && css`padding-left: ${withUnit(pLeft)};`}
+  ${createSpaces('padding')}
 
   ${({ z }) => isAlphaNumeric(z) && css`z-index: ${z};`}
 
-  ${({ listLeft }) => listLeft && css`
-    > *:not(:first-child) { margin-left: ${listLeft === true ? '8px' : withUnit(listLeft)}; }
-  `}
-  ${({ listRight }) => listRight && css`
-    > *:not(:last-child) { margin-right: ${listRight === true ? '8px' : withUnit(listRight)}; }
-  `}
-  ${({ listTop }) => listTop && css`
-    > *:not(:first-child) { margin-top: ${listTop === true ? '8px' : withUnit(listTop)}; }
-  `}
-  ${({ listBottom }) => listBottom && css`
-    > *:not(:last-child) { margin-bottom: ${listBottom === true ? '8px' : withUnit(listBottom)}; }
-  `}
+  ${createLists}
 
   ${({ layer }) => layer && layerStyles}
   ${({ square }) => square && css`width: ${withUnit(square)}; height: ${withUnit(square)};`}
   ${({ clickable }) => clickable && 'cursor: pointer;'}
   ${({ noPointerEvents }) => noPointerEvents && css`pointer-events: none;`}
+
+  ${({ background }) => background && css`background: ${background};`}
+  ${({ backgroundImage }) => backgroundImage && css`background-image: url(${backgroundImage});`}
+
+  ${({ cover }) => cover && css`
+    background-size: cover;
+    background-position: center top;
+  `}
 
   ${props => props.overlay && css`
     position: ${(props.absolute && 'absolute') || 'relative'};

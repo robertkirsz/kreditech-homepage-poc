@@ -16,7 +16,7 @@ const Col = Div.extend`
   padding-right: 8px;
 
   ${props => css`
-    ${props.small === true && 'flex-basis: 100%;'}
+    ${props.small === true && 'flex-basis: auto;'}
     ${Number.isInteger(props.small) ? getSize(props.small) : ''}
     ${Number.isInteger(props.offset) ? `margin-left: ${100 / 12 * props.offset}%;` : ''}
     ${Number.isInteger(props.offsetSmall) ? `margin-left: ${100 / 12 * props.offsetSmall}%;` : ''}

@@ -1,15 +1,13 @@
-import { HomePage, AboutPage } from 'pages'
-
-export const routes = [
+export default [
   {
     path: '/',
     label: 'Home',
-    component: HomePage,
+    component: 'HomePage',
     exact: true
   },
   {
     path: '/about',
     label: 'About',
-    component: AboutPage
+    component: 'AboutPage'
   }
 ]

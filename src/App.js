@@ -2,11 +2,12 @@ import React, { Fragment } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Helmet from 'react-helmet'
 
-import { getPageTitle } from 'utils'
-import { NotFoundPage } from 'pages'
 import { location } from 'types'
+import { getPageTitle } from 'utils'
+import routes from 'routes'
+
+import * as Pages from 'pages'
 import { Header, Main, Footer } from 'components'
-import { routes } from 'routes'
 
 const propTypes = { location }
 
@@ -18,8 +19,8 @@ const App = props => (
     <Header />
     <Main>
       <Switch>
-        {routes.map(route => <Route key={route.path} {...route} />)}
-        <Route component={NotFoundPage} />
+        {routes.map(route => <Route key={route.path} {...route} component={Pages[route.component]} />)}
+        <Route component={Pages.NotFoundPage} />
       </Switch>
     </Main>
     <Footer />

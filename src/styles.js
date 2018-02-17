@@ -17,9 +17,6 @@ injectGlobal`
   @import url('//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
 
   body {
-    margin: 0;
-    padding: 0;
-    color: black;
     font: 300 16px "Source Sans Pro", sans-serif;
     word-wrap: break-word;
     box-sizing: border-box;
@@ -42,6 +39,14 @@ injectGlobal`
 
   a {
     text-decoration: none;
+  }
+
+  button {
+    padding: 0;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
   }
 
   strong {

@@ -1,3 +1,5 @@
+import { colors } from 'styles'
+
 export default {
   home: {
     InvestorsSection: {
@@ -12,25 +14,34 @@ export default {
   },
   footer: {
     links: {
-      people: [
-        { label: 'What we do', url: '/' },
-        { label: 'Values and mission', url: '/' },
-        { label: 'People and departments', url: '/' },
-        { label: 'How we work', url: '/' },
-        { label: 'Work with us', url: '/' }
-      ],
-      solutions: [
-        { label: 'LaaS', url: '/' },
-        { label: 'Kredito24', url: '/' },
-        { label: 'Monedo', url: '/' },
-        { label: 'For developers', url: '/' }
-      ],
-      company: [
-        { label: 'About Kreditech', url: '/' },
-        { label: 'Leadership', url: '/' },
-        { label: 'Successful solutions', url: '/' },
-        { label: 'Investors and partners', url: '/' }
-      ]
+      People: {
+        color: colors.green,
+        items: [
+          { label: 'What we do', url: '/' },
+          { label: 'Values and mission', url: '/' },
+          { label: 'People and departments', url: '/' },
+          { label: 'How we work', url: '/' },
+          { label: 'Work with us', url: '/' }
+        ]
+      },
+      Solutions: {
+        color: colors.yellow,
+        items: [
+          { label: 'LaaS', url: '/' },
+          { label: 'Kredito24', url: '/' },
+          { label: 'Monedo', url: '/' },
+          { label: 'For developers', url: '/' }
+        ]
+      },
+      Company: {
+        color: colors.blue,
+        items: [
+          { label: 'About Kreditech', url: '/' },
+          { label: 'Leadership', url: '/' },
+          { label: 'Successful solutions', url: '/' },
+          { label: 'Investors and partners', url: '/' }
+        ]
+      },
     },
     copyright: `Copyright ${(new Date()).getFullYear()} Kreditech Holding SSL GmbH ® | All Rights Reserved`
   }

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { media } from 'types'
+import { colors } from 'styles'
 import allContent from 'content'
 import { Div, Section, Container, Row, Col, Heading } from 'components'
 
@@ -16,7 +17,7 @@ export const InvestorsSection = (props, { media }) => (
         </Col>
       </Row>
       <Row justifyCenter>
-        {[...Array(10).keys()].map(index => (
+        {[...Array(10)].map((value, index) => (
           <Col
             key={index}
             small={12}
@@ -51,7 +52,7 @@ const InvestorLogo = styled.img`
 
 const InfoBox = Div.extend`
   padding: 30px 16px;
-  background: #363636;
+  background: ${colors.darkGray};
 
   color: white;
   line-height: 24px;

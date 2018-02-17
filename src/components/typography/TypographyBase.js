@@ -1,12 +1,13 @@
 import { css } from 'styled-components'
 
 import { withUnit } from 'utils'
+import { colors } from 'styles'
 
 export default props => css`
   margin: 0;
   padding: 0;
 
-  color: #363636;
+  color: ${colors.darkGray};
   font-size: inherit;
   font-weight: inherit;
   line-height: normal;

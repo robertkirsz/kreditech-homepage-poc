@@ -16,7 +16,8 @@ export const media = queries.reduce((all, query) => ({
 export const colors = {
   green: '#05CC68',
   yellow: '#FFC41D',
-  blue: '#036ADD'
+  blue: '#036ADD',
+  darkGray: '#363636'
 }
 
 injectGlobal`

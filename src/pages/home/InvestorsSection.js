@@ -4,9 +4,15 @@ import styled from 'styled-components'
 import { media } from 'types'
 import { colors } from 'styles'
 import allContent from 'content'
-import { Div, Section, Container, Row, Col, Heading } from 'components'
-
-import arrowIcon from 'assets/icons/arrow.svg'
+import {
+  Div,
+  Section,
+  Container,
+  Row,
+  Col,
+  Heading,
+  ReadMoreLink
+} from 'components'
 
 const content = allContent.home.InvestorsSection
 
@@ -65,19 +71,5 @@ const InfoBox = Div.extend`
 
   &:hover {
     transform: scale(1);
-  }
-`
-
-const ReadMoreLink = styled.a`
-  display: flex;
-  align-items: center;
-  margin-top: 12px;
-  padding: 4px;
-  color: inherit;
-  font-weight: 600;
-
-  &::after {
-    content: url(${arrowIcon});
-    margin: 3px 0 0 10px;
   }
 `

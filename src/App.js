@@ -7,7 +7,7 @@ import { getPageTitle } from 'utils'
 import routes from 'routes'
 
 import * as Pages from 'pages'
-import { Header, Main, Footer } from 'components'
+import { Header, Main, Footer, GridHelper } from 'components'
 
 const propTypes = { location }
 
@@ -24,6 +24,7 @@ const App = props => (
       </Switch>
     </Main>
     <Footer />
+    <GridHelper />
   </Fragment>
 )
 

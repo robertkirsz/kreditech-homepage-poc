@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { ThemeProvider } from 'styled-components'
 
 import { colors } from 'styles'
 
@@ -37,47 +36,45 @@ export class InfoSection extends Component {
   }
 
   render = () => (
-    <ThemeProvider theme={{ dark: true }}>
-      <Section background={colors.blue} height={780}>
-        <Container relative column>
-          <Pagination
-            steps={3}
-            activeStep={this.state.activeStep}
-            horizontal
-            onChange={this.handleChange}
-            style={paginationStyles}
-          />
+    <Section background={colors.blue} height={780}>
+      <Container relative column>
+        <Pagination
+          steps={3}
+          activeStep={this.state.activeStep}
+          horizontal
+          onChange={this.handleChange}
+          style={paginationStyles}
+        />
 
-          <Div column flex={1}>
-            <Row style={{ flex: 'none' }}>
-              <Col large={6} offsetLarge={3}>
-                <Heading center>
-                  We provide financial freedom to the next 2 billion customers
-                </Heading>
-              </Col>
-            </Row>
+        <Div column flex={1}>
+          <Row style={{ flex: 'none' }}>
+            <Col large={6} offsetLarge={3}>
+              <Heading center>
+                We provide financial freedom to the next 2 billion customers
+              </Heading>
+            </Col>
+          </Row>
 
-            <Items flex={1} itemsCenter background={slide1Background}>
-              <Col small={2} offsetSmall={2} column itemsCenter>
-                <img src={customersIcon} alt="" />
-                <Value>783,690</Value>
-                <Label>customers</Label>
-              </Col>
-              <Col small={2} offsetSmall={1} column itemsCenter>
-                <img src={loansIcon} alt="" />
-                <Value>1,644,869</Value>
-                <Label>loans granted</Label>
-              </Col>
-              <Col small={2} offsetSmall={1} column itemsCenter>
-                <img src={marketsIcon} alt="" />
-                <Value>6</Value>
-                <Label>world-wide markets</Label>
-              </Col>
-            </Items>
-          </Div>
-        </Container>
-      </Section>
-    </ThemeProvider>
+          <Items flex={1} itemsCenter background={slide1Background}>
+            <Col small={2} offsetSmall={2} column itemsCenter>
+              <img src={customersIcon} alt="" />
+              <Value>783,690</Value>
+              <Label>customers</Label>
+            </Col>
+            <Col small={2} offsetSmall={1} column itemsCenter>
+              <img src={loansIcon} alt="" />
+              <Value>1,644,869</Value>
+              <Label>loans granted</Label>
+            </Col>
+            <Col small={2} offsetSmall={1} column itemsCenter>
+              <img src={marketsIcon} alt="" />
+              <Value>6</Value>
+              <Label>world-wide markets</Label>
+            </Col>
+          </Items>
+        </Div>
+      </Container>
+    </Section>
   )
 }
 

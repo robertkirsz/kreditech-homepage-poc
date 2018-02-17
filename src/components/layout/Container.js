@@ -10,7 +10,16 @@ export const Container = styled(Div)`
 
   margin: 0 auto;
 
-  padding: 0 8px;
-  ${media.mediumUp`padding: 0 12px;`}
-  ${media.largeUp`padding: 0 16px;`}
+  padding-left: 8px;
+  padding-right: 8px;
+
+  ${media.mediumUp`
+    padding-left: 12px;
+    padding-right: 12px;
+  `}
+
+  ${media.largeUp`
+    padding-left: 16px;
+    padding-right: 16px;
+  `}
 `

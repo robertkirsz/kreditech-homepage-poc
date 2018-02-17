@@ -9,5 +9,8 @@ export default {
       },
       readMoreLink: 'Read more'
     }
+  },
+  footer: {
+    copyright: `Copyright ${(new Date()).getFullYear()} Kreditech Holding SSL GmbH ® | All Rights Reserved`
   }
 }

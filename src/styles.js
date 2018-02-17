@@ -13,6 +13,10 @@ export const media = queries.reduce((all, query) => ({
   [query.name]: (...args) => css`@media only screen and ${query.value} { ${css(...args)}; }`
 }), {})
 
+export const colors = {
+  blue: '#036ADD'
+}
+
 injectGlobal`
   @import url('//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
 

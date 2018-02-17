@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react'
 import { buildThresholdList } from 'utils'
 
 import { IntroSection } from './IntroSection'
+import { InvestorsSection } from './InvestorsSection'
 
 export default class Page extends Component {
   state = { intersectionRatios: {} }
@@ -37,6 +38,7 @@ export default class Page extends Component {
         innerRef={node => (this.nodes.IntroSectionNode = node)}
         intersectionRatio={this.state.intersectionRatios.IntroSectionNode}
       />
+      <InvestorsSection />
     </Fragment>
   )
 }

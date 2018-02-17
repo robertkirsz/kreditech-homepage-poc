@@ -6,6 +6,8 @@ import { colors } from 'styles'
 import allContent from 'content'
 import { Div, Section, Container, Row, Col, Heading } from 'components'
 
+import arrowIcon from 'assets/icons/arrow.svg'
+
 const content = allContent.home.InvestorsSection
 
 export const InvestorsSection = (props, { media }) => (
@@ -17,7 +19,7 @@ export const InvestorsSection = (props, { media }) => (
         </Col>
       </Row>
       <Row justifyCenter>
-        {[...Array(10)].map((value, index) => (
+        {content.investors.map((investor, index) => (
           <Col
             key={index}
             small={12}
@@ -28,10 +30,10 @@ export const InvestorsSection = (props, { media }) => (
             justifyCenter
             itemsCenter
           >
-            <InvestorLogo src={content.investorData.logo} alt="" />
+            <InvestorLogo src={investor.logo} alt="" />
             <InfoBox layer column itemsCenter>
-              {content.investorData.info}
-              <ReadMoreLink href={content.investorData.url}>
+              {investor.info}
+              <ReadMoreLink href={investor.url}>
                 {content.readMoreLink}
               </ReadMoreLink>
             </InfoBox>
@@ -68,18 +70,14 @@ const InfoBox = Div.extend`
 
 const ReadMoreLink = styled.a`
   display: flex;
-  align-items: baseline;
+  align-items: center;
   margin-top: 12px;
   padding: 4px;
   color: inherit;
   font-weight: 600;
 
   &::after {
-    content: '';
-    display: block;
-    height: 10px;
-    width: 10px;
-    margin-left: 10px;
-    border: 1px solid currentColor;
+    content: url(${arrowIcon});
+    margin: 3px 0 0 10px;
   }
 `

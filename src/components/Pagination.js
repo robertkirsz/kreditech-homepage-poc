@@ -4,17 +4,24 @@ import styled from 'styled-components'
 
 import { Div } from 'components'
 
-export const Pagination = props => (
+export const Pagination = ({
+  horizontal,
+  steps,
+  activeStep,
+  onChange,
+  ...props
+}) => (
   <Div
-    listLeft={!props.horizontal && 9}
-    column={props.horizontal}
-    listTop={props.horizontal && 9}
+    listLeft={!horizontal && 9}
+    column={horizontal}
+    listTop={horizontal && 9}
+    {...props}
   >
-    {[...Array(props.steps)].map((value, index) => (
+    {[...Array(steps)].map((value, index) => (
       <Dot
         key={index}
-        isActive={props.activeStep === index}
-        onClick={() => props.onChange(index)}
+        isActive={activeStep === index}
+        onClick={() => onChange(index)}
       />
     ))}
   </Div>

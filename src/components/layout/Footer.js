@@ -4,9 +4,19 @@ import styled from 'styled-components'
 import { media } from 'types'
 import { colors } from 'styles'
 import allContent from 'content'
-import { Div, Container, Row, Col, Hr, ScrollToButton } from 'components'
+import {
+  Div,
+  Container,
+  Row,
+  Col,
+  Hr,
+  Badge,
+  ScrollToButton,
+  PeopleStories
+} from 'components'
 
 import kreditechLogo from 'assets/logos/kreditech.svg'
+import twitterLogo from 'assets/logos/twitter.svg'
 
 const content = allContent.footer
 
@@ -14,30 +24,17 @@ export const Footer = (props, { media }) => (
   <Wrapper column>
     <Container column pTop={72} pBottom={48}>
       <Row>
-        <Col small={3} column listTop={12}>
-          <Title style={{ color: colors.green }}>People</Title>
-          {content.links.people.map(link => (
-            <Link key={link.label} href={link.url}>
-              {link.label}
-            </Link>
-          ))}
-        </Col>
-        <Col small={3} column listTop={12}>
-          <Title style={{ color: colors.yellow }}>Solutions</Title>
-          {content.links.solutions.map(link => (
-            <Link key={link.label} href={link.url}>
-              {link.label}
-            </Link>
-          ))}
-        </Col>
-        <Col small={3} column listTop={12}>
-          <Title style={{ color: colors.blue }}>Company</Title>
-          {content.links.company.map(link => (
-            <Link key={link.label} href={link.url}>
-              {link.label}
-            </Link>
-          ))}
-        </Col>
+        {Object.keys(content.links).map(key => (
+          <Col key={key} small={3} column listTop={12}>
+            <Title style={{ color: content.links[key].color }}>{key}</Title>
+            {content.links[key].items.map(link => (
+              <Link key={link.label} href={link.url}>
+                {link.label}
+              </Link>
+            ))}
+          </Col>
+        ))}
+
         <Col small={2} listTop={12} column>
           <Title>Contact us</Title>
           <Title>Investors</Title>
@@ -46,6 +43,7 @@ export const Footer = (props, { media }) => (
             <Prefix>+49</Prefix> 40 605 905 60
           </PhoneNumber>
         </Col>
+
         <Col small={1} justifyEnd>
           <ScrollToButton />
         </Col>
@@ -54,9 +52,37 @@ export const Footer = (props, { media }) => (
 
     <Hr />
 
-    <Container column>
+    <Container column pTop={48} pBottom={45}>
       <Row>
-        <Col>Footer</Col>
+        <Col small={6} column listBottom={24}>
+          <Title>
+            <img
+              src={twitterLogo}
+              width="22"
+              style={{ marginRight: 16 }}
+              alt=""
+            />
+            Latest on twitter
+          </Title>
+          <Twit>
+            In largest ever equity investment in a German fintech company,
+            Kreditech receives EUR 110 million investment from PayU and expands
+            strategic partnership
+          </Twit>
+          <TwitAuthor>@MarekKowalski</TwitAuthor>
+        </Col>
+        <Col small={2} column listTop={12}>
+          <Title>
+            Careers
+            <Badge style={{ marginLeft: 8, color: colors.darkGray }}>35</Badge>
+          </Title>
+          <Link href="/">Project manager (m/f)</Link>
+          <Link href="/">Front end developer (m/f)</Link>
+          <Link href="/">Java developer (m/f)</Link>
+        </Col>
+        <Col>
+          <PeopleStories />
+        </Col>
       </Row>
     </Container>
 
@@ -78,11 +104,13 @@ export const Footer = (props, { media }) => (
 Footer.contextTypes = { media }
 
 const Wrapper = Div.withComponent('footer').extend`
-  background: #363636;
+  background: ${colors.darkGray};
   color: white;
 `
 
 const Title = styled.span`
+  display: flex;
+  align-items: center;
   margin-bottom: 12px;
   font-weight: 600;
   line-height: 24px;
@@ -98,6 +126,19 @@ const Link = styled.a`
   &:hover {
     opacity: 1;
   }
+`
+
+const Twit = styled.p`
+  margin: 0;
+  opacity: 0.7;
+  font-style: italic;
+  line-height: 26px;
+`
+
+const TwitAuthor = styled.span`
+  opacity: 0.7;
+  font-weight: 600;
+  line-height: 26px;
 `
 
 const PhoneNumber = styled.span`

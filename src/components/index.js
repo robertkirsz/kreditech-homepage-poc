@@ -23,4 +23,5 @@ export { Hyperlink } from './typography/Hyperlink'
 
 export { Badge } from './Badge'
 export { Pagination } from './Pagination'
+export { PeopleStories } from './PeopleStories'
 export { ScrollToButton } from './ScrollToButton'

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { media } from 'types'
 
-import { Section, Container, LargeHeading, ScrollToButton } from 'components'
+import { Section, Container, ScrollToButton } from 'components'
 
 import background from 'assets/backgrounds/home-page-intro.jpg'
 
@@ -18,7 +18,6 @@ const scrollToButtonStyles = {
 export const IntroSection = (props, { media }) => (
   <Section backgroundImage={background} cover fullHeight={media.largeUp}>
     <Container>
-      <LargeHeading center>IntroSection</LargeHeading>
       <ScrollToButton down style={scrollToButtonStyles} />
     </Container>
   </Section>

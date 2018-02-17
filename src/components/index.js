@@ -20,6 +20,7 @@ export { Subheading } from './typography/Subheading'
 export { Paragraph } from './typography/Paragraph'
 export { Small } from './typography/Small'
 export { Hyperlink } from './typography/Hyperlink'
+export { Text } from './typography/Text'
 
 export { Badge } from './Badge'
 export { Pagination } from './Pagination'

@@ -11,7 +11,7 @@ import arrowIcon from 'assets/icons/arrow.svg'
 const content = allContent.home.InvestorsSection
 
 export const InvestorsSection = (props, { media }) => (
-  <Section background="#FFC41D">
+  <Section background={colors.yellow}>
     <Container column>
       <Row>
         <Col small large={6} offsetLarge={3} justifyCenter>

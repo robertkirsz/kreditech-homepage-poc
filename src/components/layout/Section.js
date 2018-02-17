@@ -3,7 +3,7 @@ import { withUnit } from 'utils'
 import { Div } from 'components'
 
 const defaultProps = {
-  padding: '96px 0'
+  padding: '92px 0'
 }
 
 export const Section = Div.withComponent('section').extend`

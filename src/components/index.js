@@ -22,4 +22,5 @@ export { Small } from './typography/Small'
 export { Hyperlink } from './typography/Hyperlink'
 
 export { Badge } from './Badge'
+export { Pagination } from './Pagination'
 export { ScrollToButton } from './ScrollToButton'

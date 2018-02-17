@@ -8,11 +8,18 @@ import background from 'assets/backgrounds/home-page-intro.jpg'
 
 const contextTypes = { media }
 
+const scrollToButtonStyles = {
+  position: 'absolute',
+  bottom: 36,
+  left: '50%',
+  marginLeft: -25
+}
+
 export const IntroSection = (props, { media }) => (
   <Section backgroundImage={background} cover fullHeight={media.largeUp}>
     <Container>
       <LargeHeading center>IntroSection</LargeHeading>
-      <ScrollToButton />
+      <ScrollToButton down style={scrollToButtonStyles} />
     </Container>
   </Section>
 )

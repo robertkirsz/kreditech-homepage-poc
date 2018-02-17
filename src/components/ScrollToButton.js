@@ -7,4 +7,6 @@ export const ScrollToButton = styled.button`
   height: 50px;
   background: url(${icon}) no-repeat center;
   border: none;
+
+  ${props => props.down && 'transform: rotate(180deg);'}
 `

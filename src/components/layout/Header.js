@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 import { media } from 'types'
-import { Div, Container, Row, Col } from 'components'
+import { Div, Container, Row, Col, Badge } from 'components'
 
 import kreditechLogo from 'assets/logos/kreditech.svg'
 import hamburgerIcon from 'assets/icons/hamburger.svg'
@@ -21,7 +21,9 @@ export const Header = (props, { media }) => (
           <StyledNavLink to="/people">People</StyledNavLink>
           <StyledNavLink to="/solutions">Solutions</StyledNavLink>
           <StyledNavLink to="/company">Company</StyledNavLink>
-          <StyledNavLink to="/carrers" style={{ marginLeft: 'auto' }}>Carrers</StyledNavLink>
+          <StyledNavLink to="/carrers" style={{ marginLeft: 'auto' }}>
+            Carrers <Badge>35</Badge>
+          </StyledNavLink>
           <StyledNavLink to="/investors">Investors</StyledNavLink>
           <StyledNavLink to="/contact">Contact us</StyledNavLink>
           <img src={hamburgerIcon} alt="" />

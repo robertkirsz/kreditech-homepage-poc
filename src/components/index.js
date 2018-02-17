@@ -20,3 +20,6 @@ export { Subheading } from './typography/Subheading'
 export { Paragraph } from './typography/Paragraph'
 export { Small } from './typography/Small'
 export { Hyperlink } from './typography/Hyperlink'
+
+export { Badge } from './Badge'
+export { ScrollToButton } from './ScrollToButton'

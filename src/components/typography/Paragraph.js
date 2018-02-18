@@ -1,10 +1,7 @@
-import styled from 'styled-components'
+import { Text } from 'components'
 
-import baseStyles from './TypographyBase'
-
-export const Paragraph = styled.p`
-  ${baseStyles}
-
+export const Paragraph = Text.withComponent('p').extend`
   font-size: 16px;
-  line-height: 1.5;
+  font-weight: 600;
+  line-height: 24px;
 `

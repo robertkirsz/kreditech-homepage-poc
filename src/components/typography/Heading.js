@@ -1,12 +1,8 @@
-import styled from 'styled-components'
-
 import { media } from 'styles'
 
-import baseStyles from './TypographyBase'
+import { Text } from 'components'
 
-export const Heading = styled.h2`
-  ${baseStyles}
-
+export const Heading = Text.withComponent('h2').extend`
   font-size: 24px;
   line-height: 36px;
 	font-weight: 600;

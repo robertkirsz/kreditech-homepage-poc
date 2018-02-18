@@ -1,10 +1,6 @@
-import styled from 'styled-components'
+import { Text } from 'components'
 
-import baseStyles from './TypographyBase'
-
-export const Small = styled.p`
-  ${baseStyles}
-
+export const Small = Text.withComponent('p').extend`
   font-size: 14px;
   line-height: 1.5;
 `

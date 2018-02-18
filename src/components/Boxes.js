@@ -10,12 +10,14 @@ import yellowBox from 'assets/yellow-box.svg'
 export class Boxes extends Component {
   static propTypes = {
     top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    left: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    left: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    inverted: PropTypes.bool
   }
 
   static defaultProps = {
     top: 0,
-    left: 0
+    left: 0,
+    inverted: false
   }
 
   state = {
@@ -26,7 +28,7 @@ export class Boxes extends Component {
     return (
       <Wrapper {...this.props}>
         <BlueBox state={this.state.animation} />
-        <YellowBox state={this.state.animation} />
+        <YellowBox state={this.state.animation} inverted={this.props.inverted} />
 
         <Buttons listLeft={20}>
           <button onClick={() => this.setState({ animation: 'before' })}>
@@ -46,6 +48,8 @@ export class Boxes extends Component {
 
 const Wrapper = Div.extend`
   position: absolute;
+  width: 474px;
+  height: 647px;
   z-index: -1;
 `
 
@@ -83,8 +87,8 @@ const BlueBox = Box.extend`
 `
 
 const YellowBox = Box.extend`
-  top: -95px;
-  left: 280px;
+  bottom: ${props => (props.inverted ? '-190' : '-95')}px;
+  left: ${props => (props.inverted ? '190' : '280')}px;
 
   background-image: url(${yellowBox});
 

@@ -23,17 +23,14 @@ const scrollToButtonStyles = {
   marginLeft: -25
 }
 
-export const IntroSection = (props, { media }) => {
-  console.log(props.intersectionRatio)
-
-  return (
+export const IntroSection = (props, { media }) => (
     <Section
       backgroundImage={background}
       cover
       fullHeight={media.largeUp}
       innerRef={props.innerRef}
     >
-      <Container relative>
+      <Container>
         <Div
           relative
           z={1}
@@ -63,6 +60,5 @@ export const IntroSection = (props, { media }) => {
       </Container>
     </Section>
   )
-}
 
 IntroSection.contextTypes = { media }

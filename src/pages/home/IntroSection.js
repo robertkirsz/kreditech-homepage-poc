@@ -10,6 +10,7 @@ import {
   Subheading,
   Button,
   HiringBox,
+  Boxes,
   ScrollToButton
 } from 'components'
 
@@ -24,8 +25,16 @@ const scrollToButtonStyles = {
 
 export const IntroSection = (props, { media }) => (
   <Section backgroundImage={background} cover fullHeight={media.largeUp}>
-    <Container>
-      <Div column itemsCenter selfCenter m="16px 24px" maxWidth={650}>
+    <Container relative>
+      <Div
+        relative
+        z={1}
+        column
+        itemsCenter
+        selfCenter
+        margin="16px 24px"
+        maxWidth={650}
+      >
         <LargeHeading light center shadow>
           Hola!<br />
           We’re redefining how the world finances
@@ -38,6 +47,8 @@ export const IntroSection = (props, { media }) => (
         <Button mTop={36}>Get to know us</Button>
 
         <HiringBox light selfStart mTop={88} />
+
+        <Boxes top={-40} left={-70} />
       </Div>
 
       <ScrollToButton down style={scrollToButtonStyles} />

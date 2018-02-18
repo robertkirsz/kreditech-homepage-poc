@@ -30,8 +30,23 @@ export const createSpaces = type => props => {
   directions.forEach(direction => {
     const property = props[`${type[0]}${direction}`]
 
-    if (property) {
+    if (property !== undefined) {
       result += `${type}-${direction.toLowerCase()}: ${withUnit(property)};`
+    }
+  })
+
+  return result
+}
+
+// Returns position values ('top', 'left' etc)
+export const createPosition = props => {
+  let result = ''
+
+  directions.forEach(direction => {
+    const property = props[`${direction.toLowerCase()}`]
+
+    if (property !== undefined) {
+      result += `${direction.toLowerCase()}: ${withUnit(property)};`
     }
   })
 
@@ -45,7 +60,7 @@ export const createLists = props => {
   directions.forEach((direction, index) => {
     const property = props[`list${direction}`]
 
-    if (property) {
+    if (property !== undefined) {
       const value = property === true ? '8px' : withUnit(property)
       result += `> *:not(:${index % 2 ? 'last' : 'first'}-child) { margin-${direction.toLowerCase()}: ${value}; }`
     }

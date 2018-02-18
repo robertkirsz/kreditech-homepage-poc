@@ -1,6 +1,12 @@
 import styled, { css } from 'styled-components'
 
-import { isAlphaNumeric, withUnit, createSpaces, createLists } from 'utils'
+import {
+  isAlphaNumeric,
+  withUnit,
+  createSpaces,
+  createPosition,
+  createLists
+} from 'utils'
 
 const layerStyles = 'position: absolute; top: 0; right: 0; bottom: 0; left: 0;'
 
@@ -79,6 +85,8 @@ export default styled.div`
     if (absolute) return 'position: absolute;'
     if (relative) return 'position: relative;'
   }}
+
+  ${createPosition}
 
   ${({ width }) => width && css`width: ${withUnit(width)};`}
   ${({ height }) => height && css`height: ${withUnit(height)};`}

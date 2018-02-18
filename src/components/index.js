@@ -23,6 +23,7 @@ export { Small } from './typography/Small'
 export { Hyperlink } from './typography/Hyperlink'
 
 export { Badge } from './Badge'
+export { Boxes } from './Boxes'
 export { Button } from './Button'
 export { HiringBox } from './HiringBox'
 export { Pagination } from './Pagination'

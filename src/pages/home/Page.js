@@ -18,7 +18,7 @@ export default class Page extends Component {
   observers = {}
 
   componentDidMount () {
-    this.createObservers(this.nodes)
+    if (window.IntersectionObserver) this.createObservers(this.nodes)
   }
 
   createObservers = nodes => {

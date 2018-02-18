@@ -1,10 +1,6 @@
-import styled from 'styled-components'
+import { Div } from 'components'
 
-import { withUnit } from 'utils'
-
-export default styled.img`
+export default Div.withComponent(`img`).extend`
   display: block;
   width: 100%;
-
-  ${({ maxWidth }) => maxWidth && `max-width: ${withUnit(maxWidth)};`}
 `

@@ -1,38 +1,8 @@
 import styled, { css } from 'styled-components'
 
-import { isAlphaNumeric, withUnit } from 'utils'
+import { isAlphaNumeric, withUnit, createSpaces, createLists } from 'utils'
 
-const directions = ['Left', 'Right', 'Top', 'Bottom']
 const layerStyles = 'position: absolute; top: 0; right: 0; bottom: 0; left: 0;'
-
-const createSpaces = type => props => {
-  let result = ''
-
-  directions.forEach(direction => {
-    const property = props[`${type[0]}${direction}`]
-
-    if (property) {
-      result += `${type}-${direction.toLowerCase()}: ${withUnit(property)};`
-    }
-  })
-
-  return result
-}
-
-const createLists = props => {
-  let result = ''
-
-  directions.forEach((direction, index) => {
-    const property = props[`list${direction}`]
-
-    if (property) {
-      const value = property === true ? '8px' : withUnit(property)
-      result += `> *:not(:${index % 2 ? 'last' : 'first'}-child) { margin-${direction.toLowerCase()}: ${value}; }`
-    }
-  })
-
-  return result
-}
 
 export default styled.div`
   display: ${props => {

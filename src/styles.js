@@ -8,10 +8,18 @@ export const queries = [
 ]
 
 // Iterate through all the sizes and create a media template for each one
-export const media = queries.reduce((all, query) => ({
-  ...all,
-  [query.name]: (...args) => css`@media only screen and ${query.value} { ${css(...args)}; }`
-}), {})
+export const media = queries.reduce(
+  (all, query) => ({
+    ...all,
+    [query.name]: (...args) =>
+      css`
+        @media only screen and ${query.value} {
+          ${css(...args)};
+        }
+      `
+  }),
+  {}
+)
 
 export const colors = {
   green: '#05CC68',
@@ -24,8 +32,8 @@ injectGlobal`
   @import url('//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
 
   body {
+    color: ${colors.darkGray};
     font: 300 16px "Source Sans Pro", sans-serif;
-    word-wrap: break-word;
     box-sizing: border-box;
 
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -48,15 +56,15 @@ injectGlobal`
     text-decoration: none;
   }
 
+  h1, h2, h3, h4, h5, p {
+    margin: 0;
+  }
+
   button {
     padding: 0;
     background: none;
     border: none;
     outline: none;
     cursor: pointer;
-  }
-
-  strong {
-    font-weight: 400;
   }
 `

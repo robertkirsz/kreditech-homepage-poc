@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 
 import { colors } from 'styles'
+import { createSpaces } from 'utils'
 
 export const Button = styled.button`
   height: 60px;
   min-width: 280px;
   padding: 0 40px;
+
   border-radius: 30px;
   background-color: white;
   box-shadow:
@@ -17,4 +19,6 @@ export const Button = styled.button`
   font-weight: 600;
   line-height: 24px;
   text-align: center;
+
+  ${createSpaces('margin')}
 `

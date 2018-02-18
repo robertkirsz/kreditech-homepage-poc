@@ -5,42 +5,29 @@ import styled from 'styled-components'
 import { Div } from 'components'
 
 import blueBox from 'assets/blue-box.svg'
+import greenBox from 'assets/green-box.svg'
 import yellowBox from 'assets/yellow-box.svg'
 
 export class Boxes extends Component {
   static propTypes = {
+    state: PropTypes.oneOf(['before', 'active', 'after']),
     top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     left: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     inverted: PropTypes.bool
   }
 
   static defaultProps = {
+    state: 'active',
     top: 0,
     left: 0,
     inverted: false
   }
 
-  state = {
-    animation: 'active'
-  }
-
   render () {
     return (
       <Wrapper {...this.props}>
-        <BlueBox state={this.state.animation} />
-        <YellowBox state={this.state.animation} inverted={this.props.inverted} />
-
-        <Buttons listLeft={20}>
-          <button onClick={() => this.setState({ animation: 'before' })}>
-            Before
-          </button>
-          <button onClick={() => this.setState({ animation: 'active' })}>
-            Active
-          </button>
-          <button onClick={() => this.setState({ animation: 'after' })}>
-            After
-          </button>
-        </Buttons>
+        <BlueBox state={this.props.state} />
+        <YellowBox state={this.props.state} inverted={this.props.inverted} />
       </Wrapper>
     )
   }
@@ -49,7 +36,7 @@ export class Boxes extends Component {
 const Wrapper = Div.extend`
   position: absolute;
   width: 474px;
-  height: 647px;
+  height: 645px;
   z-index: -1;
 `
 
@@ -57,7 +44,7 @@ const Box = styled.div`
   position: absolute;
 
   width: 474px;
-  height: 647px;
+  height: 645px;
 
   background-repeat: no-repeat;
   background-position: left top;
@@ -87,22 +74,14 @@ const BlueBox = Box.extend`
 `
 
 const YellowBox = Box.extend`
-  bottom: ${props => (props.inverted ? '-190' : '-95')}px;
-  left: ${props => (props.inverted ? '190' : '280')}px;
+  bottom: ${props => (props.inverted ? '-190' : '95')}px;
+  left: ${props => (props.inverted ? '190' : '260')}px;
 
-  background-image: url(${yellowBox});
+  background-image: url(${greenBox}), url(${yellowBox});
+  background-position: ${props => (props.inverted ? '-190px -190px' : '-260px 95px')}, left top;
 
   ${({ state }) =>
     state !== 'active' &&
     `transform: translate(${-1 * coords[state].x}px, ${-1 * coords[state].y}px)`
   }
-`
-
-const Buttons = Div.extend`
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  padding: 8px;
-  background: powderblue;
-  z-index: 2000;
 `

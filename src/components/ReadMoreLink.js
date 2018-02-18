@@ -5,7 +5,6 @@ import arrowIcon from 'assets/icons/arrow.svg'
 export const ReadMoreLink = styled.a`
   display: flex;
   align-items: center;
-  margin-top: 12px;
   padding: 4px;
   color: inherit;
   font-weight: 600;

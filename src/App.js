@@ -7,7 +7,7 @@ import { getPageTitle } from 'utils'
 import routes from 'routes'
 
 import * as Pages from 'pages'
-import { Header, Main, Footer, GridHelper } from 'components'
+import { Header, Main, Footer } from 'components'
 
 const App = props => (
   <Fragment>
@@ -31,8 +31,6 @@ const App = props => (
     </Main>
 
     <Footer />
-
-    <GridHelper />
   </Fragment>
 )
 

@@ -10,9 +10,7 @@ export const Button = styled.button`
 
   border-radius: 30px;
   background-color: white;
-  box-shadow:
-    0 10px 25px 0 rgba(22, 44, 98, 0.2),
-    0 5px 5px 0 rgba(3, 106, 221, 0.1);
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
 
   color: ${colors.blue};
   font-size: 20px;

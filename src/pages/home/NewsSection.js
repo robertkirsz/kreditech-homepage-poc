@@ -9,6 +9,7 @@ import {
   Image,
   Row,
   Col,
+  Boxes,
   ReadMoreLink
 } from 'components'
 
@@ -18,23 +19,25 @@ import googlePlusLogo from 'assets/logos/google-plus.svg'
 import news1 from 'assets/news/news_1.jpg'
 import news2 from 'assets/news/news_2.jpg'
 import news3 from 'assets/news/news_3.jpg'
-import blueBox from 'assets/blue-box.svg'
-import yellowBox from 'assets/yellow-box.svg'
 
 export const NewsSection = () => (
   <Section padding="170px 0 217px" relative>
-    <Container column z={2}>
+    <Container column relative z={1}>
       <Row>
-        <Col small={2} offsetSmall={1} column>
+        <Col small={2} offsetSmall={1} column relative>
           <Heading style={{ color: 'white', lineHeight: '48px' }}>
             Latest news
           </Heading>
+
           <Div mTop={28} listLeft={32} itemsCenter>
             <img src={twitterLogo} alt="" />
             <img src={facebookLogo} alt="" />
             <img src={googlePlusLogo} alt="" />
           </Div>
+
+          <Boxes top={-110} left={-120} />
         </Col>
+
         <Col column itemsStart>
           <Image src={news1} alt="" />
           <Date>12 November 2017</Date>
@@ -43,11 +46,13 @@ export const NewsSection = () => (
             innovation
           </Text>
         </Col>
+
         <Col column itemsStart>
           <Image src={news2} alt="" />
           <Date>6 November 2017</Date>
           <Text>Kreditech ranked among top 10 fintechs worldwide</Text>
         </Col>
+
         <Col column itemsStart>
           <Image src={news3} alt="" />
           <Date>1 November 2017</Date>
@@ -57,16 +62,13 @@ export const NewsSection = () => (
           </Text>
         </Col>
       </Row>
+
       <Row mTop={24}>
         <Col small={3} offsetSmall={3}>
           <ReadMoreLink href="/">More news</ReadMoreLink>
         </Col>
       </Row>
     </Container>
-    <Div layer z={1}>
-      <img src={blueBox} height="644" alt="" />
-      <img src={yellowBox} height="644" alt="" />
-    </Div>
   </Section>
 )
 

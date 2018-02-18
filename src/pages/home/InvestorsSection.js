@@ -41,7 +41,7 @@ export const InvestorsSection = (props, { media }) => (
 
             <InfoBox layer column itemsCenter>
               {investor.info}
-              <ReadMoreLink href={investor.url}>
+              <ReadMoreLink href={investor.url} style={{ marginTop: 12 }}>
                 {content.readMoreLink}
               </ReadMoreLink>
             </InfoBox>

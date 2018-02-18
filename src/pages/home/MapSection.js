@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { colors } from 'styles'
 
-import { Div, Section, Container } from 'components'
+import { Div, Section, Container, Row, Col, Heading } from 'components'
 
 import map from 'assets/map.svg'
 import photo from 'assets/photo_1.png'
@@ -13,8 +13,23 @@ import suitcaseIcon from 'assets/icons/suitcase-blue.svg'
 import linkedinLogo from 'assets/logos/linkedin.svg'
 
 export const MapSection = () => (
-  <Section background={colors.blue} backgroundImage={map} contain height={900}>
-    <Container>
+  <StyledSection>
+    <Container relative block>
+      <Row>
+        <Col small={8} offsetSmall={2}>
+          <Heading light center>
+            We’re growing to provide better access to credit globally
+          </Heading>
+        </Col>
+      </Row>
+
+      <Row mTop={36}>
+        <Col small={4} offsetSmall={4}>
+          <MapButton>See our growth</MapButton>
+          <MapButton active>Markets map</MapButton>
+        </Col>
+      </Row>
+
       <MapInfoBox column>
         <Div listLeft={15} itemsCenter>
           <img src={russiaIcon} alt="" />
@@ -58,10 +73,20 @@ export const MapSection = () => (
         </Div>
       </MapInfoBox>
     </Container>
-  </Section>
+  </StyledSection>
 )
 
+const StyledSection = Section.extend`
+  height: 900px;
+  background: ${colors.blue} url(${map}) no-repeat center bottom;
+  background-size: 1326px 672px;
+  padding: 80px 0 48px;
+`
+
 const MapInfoBox = Div.extend`
+  position: absolute;
+  top: 260px;
+  right: 0;
   height: 362px;
   width: 280px;
   padding: 18px 36px;
@@ -79,4 +104,15 @@ const Title = styled.h3`
 const Photo = Div.extend`
   background: url(${yellowBox}) no-repeat center;
   background-size: contain;
+`
+
+const MapButton = styled.button`
+  flex: 1;
+  color: white;
+  padding: 13px 10px 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px 0 0 4px;
+  background-color: #036ADD;
+
+  ${props => !props.active && 'color: rgba(255, 255, 255, 0.6);'}
 `

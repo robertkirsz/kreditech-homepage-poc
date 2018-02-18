@@ -23,37 +23,46 @@ const scrollToButtonStyles = {
   marginLeft: -25
 }
 
-export const IntroSection = (props, { media }) => (
-  <Section backgroundImage={background} cover fullHeight={media.largeUp}>
-    <Container relative>
-      <Div
-        relative
-        z={1}
-        column
-        itemsCenter
-        selfCenter
-        margin="16px 24px"
-        maxWidth={650}
-      >
-        <LargeHeading light center shadow>
-          Hola!<br />
-          We’re redefining how the world finances
-        </LargeHeading>
+export const IntroSection = (props, { media }) => {
+  console.log(props.intersectionRatio)
 
-        <Subheading light center shadow mTop={24}>
-          Building better access to credit, through technology
-        </Subheading>
+  return (
+    <Section
+      backgroundImage={background}
+      cover
+      fullHeight={media.largeUp}
+      innerRef={props.innerRef}
+    >
+      <Container relative>
+        <Div
+          relative
+          z={1}
+          column
+          itemsCenter
+          selfCenter
+          margin="16px 24px"
+          maxWidth={650}
+        >
+          <LargeHeading light center shadow>
+            Hola!<br />
+            We’re redefining how the world finances
+          </LargeHeading>
 
-        <Button mTop={36}>Get to know us</Button>
+          <Subheading light center shadow mTop={24}>
+            Building better access to credit, through technology
+          </Subheading>
 
-        <HiringBox light selfStart mTop={88} />
+          <Button mTop={36}>Get to know us</Button>
 
-        <Boxes top={-40} left={-70} />
-      </Div>
+          <HiringBox light selfStart mTop={88} />
 
-      <ScrollToButton down style={scrollToButtonStyles} />
-    </Container>
-  </Section>
-)
+          <Boxes top={-40} left={-70} />
+        </Div>
+
+        <ScrollToButton down style={scrollToButtonStyles} />
+      </Container>
+    </Section>
+  )
+}
 
 IntroSection.contextTypes = { media }

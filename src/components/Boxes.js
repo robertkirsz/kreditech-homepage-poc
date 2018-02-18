@@ -2,11 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import { colors } from 'styles'
 import { Div } from 'components'
-
-import blueBox from 'assets/blue-box.svg'
-import greenBox from 'assets/green-box.svg'
-import yellowBox from 'assets/yellow-box.svg'
 
 export class Boxes extends Component {
   static propTypes = {
@@ -42,12 +39,11 @@ const Wrapper = Div.extend`
 
 const Box = styled.div`
   position: absolute;
-
-  width: 474px;
-  height: 645px;
-
-  background-repeat: no-repeat;
-  background-position: left top;
+  height: 644px;
+  width: 350px;
+  border-radius: 54px;
+  transform: skew(-12.5deg) translateX(-10px);
+  transform-origin: left bottom;
 
   ${props => props.state !== 'active' && 'opacity: 0;'}
 
@@ -56,32 +52,16 @@ const Box = styled.div`
   };
 `
 
-const coords = {
-  before: { x: 200, y: -1000 },
-  after: { x: -200, y: 1000 }
-}
-
 const BlueBox = Box.extend`
   top: 0;
   left: 0;
 
-  background-image: url(${blueBox});
-
-  ${({ state }) =>
-    state !== 'active' &&
-    `transform: translate(${coords[state].x}px, ${coords[state].y}px)`
-  }
+  background: ${colors.blue};
 `
 
 const YellowBox = Box.extend`
   bottom: ${props => (props.inverted ? '-190' : '95')}px;
   left: ${props => (props.inverted ? '190' : '260')}px;
 
-  background-image: url(${greenBox}), url(${yellowBox});
-  background-position: ${props => (props.inverted ? '-190px -190px' : '-260px 95px')}, left top;
-
-  ${({ state }) =>
-    state !== 'active' &&
-    `transform: translate(${-1 * coords[state].x}px, ${-1 * coords[state].y}px)`
-  }
+  background: ${colors.yellow};
 `

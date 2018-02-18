@@ -33,7 +33,7 @@ injectGlobal`
 
   body {
     color: ${colors.darkGray};
-    font: 300 16px "Source Sans Pro", sans-serif;
+    font: 400 16px/1.5 "Source Sans Pro", sans-serif;
     box-sizing: border-box;
 
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -54,6 +54,8 @@ injectGlobal`
 
   a {
     text-decoration: none;
+    font-weight: inherit;
+    color: inherit;
   }
 
   h1, h2, h3, h4, h5, p {

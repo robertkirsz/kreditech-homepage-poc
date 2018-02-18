@@ -5,6 +5,8 @@ import { buildThresholdList } from 'utils'
 
 import { IntroSection } from './IntroSection'
 import { InfoSection } from './InfoSection'
+import { MovieSection } from './MovieSection'
+import { MapSection } from './MapSection'
 import { NewsSection } from './NewsSection'
 import { InvestorsSection } from './InvestorsSection'
 
@@ -47,6 +49,8 @@ export default class Page extends Component {
       <ThemeProvider theme={{ dark: true }}>
         <InfoSection />
       </ThemeProvider>
+      <MovieSection />
+      <MapSection />
       <NewsSection />
       <InvestorsSection />
     </Fragment>

@@ -107,8 +107,8 @@ export default styled.div`
   ${({ background }) => background && css`background: ${background};`}
   ${({ backgroundImage }) => backgroundImage && css`background-image: url(${backgroundImage});`}
 
-  ${({ cover }) => cover && css`
-    background-size: cover;
+  ${({ cover, contain }) => (cover || contain) && css`
+    background-size: ${cover ? 'cover' : 'contain'};
     background-position: center top;
   `}
 

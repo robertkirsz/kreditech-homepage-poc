@@ -30,21 +30,18 @@ export class PeopleStories extends Component {
     const { activeStep } = this.state
 
     return (
-      <Div
-        flex={1}
-        overlay="powderblue"
-        column
-        relative
-        justifyCenter
-        maxWidth={300}
-      >
-        <Message>{stories[activeStep].text}</Message>
-        <Pagination
-          steps={3}
-          activeStep={activeStep}
-          onChange={this.handleChange}
-          style={{ marginTop: 28 }}
-        />
+      <Div overlay="powderblue" flex={1} listLeft={12}>
+        <Div column justifyCenter>
+          <Message>{stories[activeStep].text}</Message>
+
+          <Pagination
+            steps={stories.length}
+            activeStep={activeStep}
+            onChange={this.handleChange}
+            mTop={28}
+          />
+        </Div>
+
         <Background photo={stories[activeStep].photo} />
       </Div>
     )
@@ -52,22 +49,31 @@ export class PeopleStories extends Component {
 }
 
 const Message = styled.p`
-  max-width: 180px;
+  position: relative;
+  width: 180px;
+  height: 72px;
   margin: 0;
   font-size: 24px;
   line-height: 36px;
   opacity: 0.7;
+
+  &::after {
+    content: '„';
+    position: absolute;
+    top: -93px;
+    right: -20px;
+    color: white;
+    font-size: 240px;
+    font-weight: 600;
+    opacity: 0.1;
+  }
 `
 
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100px;
-  background-color: red;
+const Background = Div.extend`
+  height: 100%;
+  width: 135px;
   background-image: url(${props => props.photo}), url(${box});
-  background-size: contain, 100% 120%;
+  background-size: contain, 130px 198px;
   background-repeat: no-repeat;
   background-position: right bottom, right top;
 `

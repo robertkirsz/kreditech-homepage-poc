@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { media } from 'types'
 import { colors } from 'styles'
 import allContent from 'content'
+
 import {
   Div,
   Container,
@@ -39,6 +40,7 @@ export const Footer = (props, { media }) => (
           <Title>Contact us</Title>
           <Title>Investors</Title>
           <Title>News</Title>
+
           <PhoneNumber>
             <Prefix>+49</Prefix> 40 605 905 60
           </PhoneNumber>
@@ -52,9 +54,9 @@ export const Footer = (props, { media }) => (
 
     <Hr />
 
-    <Container column pTop={48} pBottom={45}>
+    <Container column pTop={48}>
       <Row>
-        <Col small={6} column listBottom={24}>
+        <Col small={6} column listBottom={24} pBottom={45}>
           <Title>
             <img
               src={twitterLogo}
@@ -71,16 +73,19 @@ export const Footer = (props, { media }) => (
           </Twit>
           <TwitAuthor>@MarekKowalski</TwitAuthor>
         </Col>
-        <Col small={2} column listTop={12}>
+
+        <Col small={2} column listTop={12} pBottom={45}>
           <Title>
             Careers
             <Badge style={{ marginLeft: 8, color: colors.darkGray }}>35</Badge>
           </Title>
+
           <Link href="/">Project manager (m/f)</Link>
           <Link href="/">Front end developer (m/f)</Link>
           <Link href="/">Java developer (m/f)</Link>
         </Col>
-        <Col>
+
+        <Col column>
           <PeopleStories stories={content.stories} />
         </Col>
       </Row>
@@ -93,6 +98,7 @@ export const Footer = (props, { media }) => (
         <Col>
           <img src={kreditechLogo} alt="" />
         </Col>
+
         <Col>
           <Copyright>{content.copyright}</Copyright>
         </Col>

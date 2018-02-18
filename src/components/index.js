@@ -23,6 +23,7 @@ export { Hyperlink } from './typography/Hyperlink'
 export { Text } from './typography/Text'
 
 export { Badge } from './Badge'
+export { Button } from './Button'
 export { Pagination } from './Pagination'
 export { PeopleStories } from './PeopleStories'
 export { ReadMoreLink } from './ReadMoreLink'

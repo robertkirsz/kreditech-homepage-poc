@@ -30,7 +30,7 @@ export class PeopleStories extends Component {
     const { activeStep } = this.state
 
     return (
-      <Div overlay="powderblue" flex={1} listLeft={12}>
+      <Div flex={1} listLeft={12}>
         <Div column justifyCenter>
           <Message>{stories[activeStep].text}</Message>
 

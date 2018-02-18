@@ -24,6 +24,7 @@ export const InvestorsSection = (props, { media }) => (
           <Heading center>{content.heading}</Heading>
         </Col>
       </Row>
+
       <Row justifyCenter>
         {content.investors.map((investor, index) => (
           <Col
@@ -37,6 +38,7 @@ export const InvestorsSection = (props, { media }) => (
             itemsCenter
           >
             <InvestorLogo src={investor.logo} alt="" />
+
             <InfoBox layer column itemsCenter>
               {investor.info}
               <ReadMoreLink href={investor.url}>
@@ -53,6 +55,8 @@ export const InvestorsSection = (props, { media }) => (
 InvestorsSection.contextTypes = { media }
 
 const InvestorLogo = styled.img`
+  max-width: 165px;
+
   &:hover + div {
     transform: scale(1);
   }

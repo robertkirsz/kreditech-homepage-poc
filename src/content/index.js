@@ -2,6 +2,7 @@ import { colors } from 'styles'
 
 import payuLogo from 'assets/investors/payu.svg'
 import blumbergCapitalLogo from 'assets/investors/blumberg-capital.svg'
+import ifcLogo from 'assets/investors/ifc.png'
 import kreosCapitalLogo from 'assets/investors/kreos-capital.svg'
 import vardeLogo from 'assets/investors/varde.png'
 import peterThielLogo from 'assets/investors/peter-thiel.png'
@@ -31,7 +32,7 @@ export default {
         },
         {
           name: 'IFC',
-          logo: 'http://via.placeholder.com/210x70',
+          logo: ifcLogo,
           info: 'A member of the World Bank Group, IFC is the largest global development institution focused on the private sector.',
           url: '/'
         },

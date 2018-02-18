@@ -81,7 +81,7 @@ export const Footer = (props, { media }) => (
           <Link href="/">Java developer (m/f)</Link>
         </Col>
         <Col>
-          <PeopleStories />
+          <PeopleStories stories={content.stories} />
         </Col>
       </Row>
     </Container>

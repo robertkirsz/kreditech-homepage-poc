@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { Div, Pagination } from 'components'
 
-import image from 'assets/story-man.png'
 import box from 'assets/green-box.svg'
 
-const items = [
-  { text: 'My story is more than awesome', image },
-  { text: 'My story is great', image },
-  { text: 'My story is awesome', image }
-]
-
 export class PeopleStories extends Component {
+  static propTypes = {
+    stories: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        text: PropTypes.string.isRequired,
+        photo: PropTypes.string.isRequired
+      })
+    ).isRequired
+  }
+
   state = {
     activeStep: 0
   }
@@ -22,16 +26,26 @@ export class PeopleStories extends Component {
   }
 
   render () {
+    const { stories } = this.props
+    const { activeStep } = this.state
+
     return (
-      <Div flex={1} overlay="powderblue" column relative justifyCenter maxWidth={300}>
-        <Message>{items[this.state.activeStep].text}</Message>
+      <Div
+        flex={1}
+        overlay="powderblue"
+        column
+        relative
+        justifyCenter
+        maxWidth={300}
+      >
+        <Message>{stories[activeStep].text}</Message>
         <Pagination
           steps={3}
-          activeStep={this.state.activeStep}
+          activeStep={activeStep}
           onChange={this.handleChange}
           style={{ marginTop: 28 }}
         />
-        <Background />
+        <Background photo={stories[activeStep].photo} />
       </Div>
     )
   }
@@ -52,7 +66,7 @@ const Background = styled.div`
   bottom: 0;
   width: 100px;
   background-color: red;
-  background-image: url(${image}), url(${box});
+  background-image: url(${props => props.photo}), url(${box});
   background-size: contain, 100% 120%;
   background-repeat: no-repeat;
   background-position: right bottom, right top;

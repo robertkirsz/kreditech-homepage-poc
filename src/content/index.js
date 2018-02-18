@@ -6,8 +6,11 @@ import kreosCapitalLogo from 'assets/investors/kreos-capital.svg'
 import vardeLogo from 'assets/investors/varde.png'
 import peterThielLogo from 'assets/investors/peter-thiel.png'
 import hpeLogo from 'assets/investors/hpe.png'
+import victoryParkLogo from 'assets/investors/victory-park.png'
 import rakutenLogo from 'assets/investors/rakuten.svg'
 import amadeusLogo from 'assets/investors/amadeus.png'
+import image1 from 'assets/story-person_1.png'
+import image2 from 'assets/story-person_2.png'
 
 export default {
   home: {
@@ -58,7 +61,7 @@ export default {
         },
         {
           name: 'Victory Park Capital',
-          logo: 'http://via.placeholder.com/210x70',
+          logo: victoryParkLogo,
           info: 'A member of the World Bank Group, IFC is the largest global development institution focused on the private sector.',
           url: '/'
         },
@@ -109,6 +112,11 @@ export default {
         ]
       },
     },
+    stories: [
+      { id: 0, text: 'My story is more than awesome', photo: image1 },
+      { id: 1, text: 'My story is great', photo: image2 },
+      { id: 2, text: 'My story is awesome', photo: image1 }
+    ],
     copyright: `Copyright ${(new Date()).getFullYear()} Kreditech Holding SSL GmbH ® | All Rights Reserved`
   }
 }

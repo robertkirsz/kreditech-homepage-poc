@@ -17,7 +17,10 @@ export const buildThresholdList = steps => {
 }
 
 export const getPageTitle = (pathname, routes) => {
-  const { label } = routes.filter(route => route.label !== 'Home').find(route => route.path === pathname) || {}
+  const { label } =
+    routes
+      .filter(route => route.label !== 'Home')
+      .find(route => route.path === pathname) || {}
   return label ? `${DEFAULT_TITLE} | ${label}` : DEFAULT_TITLE
 }
 
@@ -62,9 +65,23 @@ export const createLists = props => {
 
     if (property !== undefined) {
       const value = property === true ? '8px' : withUnit(property)
-      result += `> *:not(:${index % 2 ? 'last' : 'first'}-child) { margin-${direction.toLowerCase()}: ${value}; }`
+      result += `> *:not(:${
+        index % 2 ? 'last' : 'first'
+      }-child) { margin-${direction.toLowerCase()}: ${value}; }`
     }
   })
 
   return result
 }
+
+// Resolves when image is loaded
+export const preloadImage = src =>
+  new Promise(resolve => {
+    if (!src) return resolve(false)
+    const img = new Image()
+    img.onload = resolve(src)
+    img.src = src
+  })
+
+export const sleep = (time = 10) =>
+  new Promise(resolve => setTimeout(resolve, time))

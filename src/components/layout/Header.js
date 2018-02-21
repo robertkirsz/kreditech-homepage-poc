@@ -1,15 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
-import { media } from 'types'
 import { Div, Container, Row, Col, Badge } from 'components'
 
 import kreditechLogo from 'assets/logos/kreditech.svg'
 import hamburgerIcon from 'assets/icons/hamburger.svg'
 
-export const Header = (props, { media }) => (
-  <Wrapper padding="30px 0">
+export const Header = connect(({ layout }) => ({
+  isNavbarVisible: layout.isNavbarVisible
+}))(props => (
+  <Wrapper padding="30px 0" visible={props.isNavbarVisible}>
     <Container>
       <Row>
         <Col small={3}>
@@ -31,15 +33,22 @@ export const Header = (props, { media }) => (
       </Row>
     </Container>
   </Wrapper>
-)
-
-Header.contextTypes = { media }
+))
 
 const Wrapper = Div.withComponent('header').extend`
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
+  z-index: 10;
+  transition: 0.4s;
+
+  ${({ visible }) =>
+    !visible &&
+    `
+    opacity: 0;
+    pointer-events: none;
+  `}
 `
 
 const StyledNavLink = styled(NavLink)`

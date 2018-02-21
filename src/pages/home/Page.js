@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import { buildThresholdList } from 'utils'
+import { buildThresholdList, sleep } from 'utils'
+import { dispatch } from 'store'
 
-import { IntroSection } from './IntroSection'
+import IntroSection from './IntroSection'
 import { InfoSection } from './InfoSection'
 import { MovieSection } from './MovieSection'
 import { MapSection } from './MapSection'
@@ -17,8 +18,11 @@ export default class Page extends Component {
 
   observers = {}
 
-  componentDidMount () {
+  async componentDidMount () {
     if (window.IntersectionObserver) this.createObservers(this.nodes)
+
+    await sleep(1000)
+    dispatch().showIntroSection()
   }
 
   createObservers = nodes => {

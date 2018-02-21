@@ -19,4 +19,9 @@ export const Button = styled.button`
   text-align: center;
 
   ${createSpaces('margin')}
+
+  ${props => props.visible !== undefined && `
+    transition: opacity 0.3s;
+    ${props.visible === false && 'opacity: 0;'}
+  `}
 `

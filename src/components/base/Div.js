@@ -131,4 +131,9 @@ export default styled.div`
       pointer-events: none;
     }
   `}
+
+  ${props => props.visible !== undefined && css`
+    transition: opacity 0.3s;
+    ${props.visible === false && 'opacity: 0;'}
+  `}
 `

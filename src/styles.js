@@ -69,4 +69,22 @@ injectGlobal`
     outline: none;
     cursor: pointer;
   }
+
+  .fade-enter {
+    opacity: 0.01;
+  }
+
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 600ms ease-in;
+  }
+
+  .fade-exit {
+    opacity: 1;
+  }
+
+  .fade-exit.fade-exit-active {
+    opacity: 0.01;
+    transition: opacity 600ms ease-in;
+  }
 `

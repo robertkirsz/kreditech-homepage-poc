@@ -9,4 +9,9 @@ export const ScrollToButton = styled.button`
   border: none;
 
   ${props => props.down && 'transform: rotate(180deg);'}
+
+  ${props => props.visible !== undefined && `
+    transition: opacity 0.3s;
+    ${props.visible === false && 'opacity: 0;'}
+  `}
 `

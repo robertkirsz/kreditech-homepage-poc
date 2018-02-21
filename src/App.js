@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Helmet from 'react-helmet'
 
-import { locationTypes } from 'types'
 import { getPageTitle } from 'utils'
 import routes from 'routes'
 
@@ -33,7 +32,5 @@ const App = props => (
     <Footer />
   </Fragment>
 )
-
-App.propTypes = { location: locationTypes }
 
 export default App
